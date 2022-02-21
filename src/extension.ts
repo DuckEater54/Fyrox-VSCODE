@@ -1,7 +1,10 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
+import { TextEncoder } from 'util';
 import * as vscode from 'vscode';
+import 'hexeditor';
 
+let fs = require('fs');
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -20,6 +23,16 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposable);
+
+	vscode.commands.registerCommand('extension.newScene', () => {
+		vscode.workspace.openTextDocument({ content: undefined, language: 'yaml' }).then(doc => {
+			vscode.window.showTextDocument(doc)
+			doc.save()
+		})
+	});
+	vscode.commands.registerCommand('extension.loadScene', (file: vscode.Uri) => {
+		fs.readFileSync(file, 'binary');
+	});
 }
 
 // this method is called when your extension is deactivated

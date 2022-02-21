@@ -3,6 +3,7 @@
 	"displayName": "Fyrox Extension for Visual Studio Code",
 	"description": "an extension for Visual Studio Code that includes snippets and stuff for the fyrox game engine",
 	"version": "0.0.1",
+	"icon": "https://github.com/FyroxEngine/Fyrox/raw/master/pics/logo.png",
 	"publisher": "DuckEater54",
     "repository": {
         "type": "git",
@@ -23,20 +24,56 @@
 		"Snippets"
 	],
 	"activationEvents": [
-        "onCommand:fyrox-ge-extension.helloWorld"
+        "onCommand:fyrox-vsc-extension.newScene",
+		"onCommand:fyrox-vsc-extension.loadScene"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "fyrox-ge-extension.helloWorld",
-				"title": "Hello World"
+				"command": "fyrox-vsc-extension.newScene",
+				"title": "Create a new Scene"
+			},
+			{
+				"command": "fyrox-vsc-extension.loadScene",
+				"title": "Load a scene to the FyroxEditor"
+			},
+			{
+				"command": "fyrox-vsc-extension.editorCompile",
+				"title": "Compile the game"
 			}
 		],
 		"snippets": [
 			{
 				"language": "rust",
 				"path": "./snippets/fyrox.code-snippets"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "fyroxed-panel",
+					"title": "Fyroxed Editor",
+					"icon": "https://github.com/FyroxEngine/Fyrox/raw/master/pics/logo.png"
+				}
+			]
+		},
+		"views": {
+			"fyroxed-editor": [
+				{
+					"id": "scene-content",
+					"name": "Scene Hierachal Content"
+				},
+				{
+					"id": "project-folder",
+					"name": "Root Folder"
+				}
+			]
+		},
+		"viewsWelcome": [
+			{
+				"view": "fyroxed",
+				"contents": "In order to use the fyroxed editor inside VsCode, you must first select a scene to load or to create a new scene.\n[Load Scene](command:fyrox-vsc-extension.loadScene)\n[New Scene](command:fyrox-vsc-extension.newScene)"
 			}
 		]
 	},
