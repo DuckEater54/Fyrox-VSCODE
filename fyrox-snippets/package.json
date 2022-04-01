@@ -1,0 +1,26 @@
+{
+    "name": "fyrox-snippets",
+    "displayName": "fyrox-snippets",
+    "description": "Fyrox Game Engine snippets extension for VSCode.",
+    "version": "0.0.1",
+	"icon": "https://github.com/FyroxEngine/Fyrox/raw/master/pics/logo.png",
+	"publisher": "DuckEater54",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DuckEater54/Fyrox-VSCODE.git"
+    },
+    "engines": {
+        "vscode": "^1.64.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "rust",
+                "path": "./snippets/fyrox.code-snippets"
+            }
+        ]
+    }
+}
