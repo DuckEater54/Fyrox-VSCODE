@@ -43,12 +43,6 @@
 				"title": "Compile the game"
 			}
 		],
-		"snippets": [
-			{
-				"language": "rust",
-				"path": "./snippets/fyrox.code-snippets"
-			}
-		],
 		"viewsContainers": {
 			"activitybar": [
 				{
